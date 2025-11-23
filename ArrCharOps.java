@@ -37,45 +37,87 @@ public class ArrCharOps {
      */
     public static char charAt(char[] arr, int index) {
         // Replace the following statement with your code
-        return 0;
+        return arr[index];
     }
 
     /** If the two arrays have the same value in every index, 
      *  returns true; Otherwise returns false.
      */
     public static boolean equals(char[] arr1, char[] arr2) {
-        // Replace the following statement with your code
-        return false;
+        boolean check = true;
+        int i;
+        if(arr1.length==arr2.length){
+            for( i =0 ; i <arr1.length ; i++){
+            if( arr1[i] != arr2[i] ){
+                check= false;
+                 return check;
+            }
+        }
+        }
+        else return false;
+        return check;
     }
 
     /** Returns the index within the given array of the first occurrence of the given character.
      *  If no such character is found, returns -1.
      */
     public static int indexOf(char[] arr, char ch) {
-        // Replace the following statement with your code
-        return -1;
+        int check= -1;
+         int count =0;
+        while(check == -1 && count<arr.length){
+          if(arr[count] == ch)
+          check =count;
+         count++;
+        }
+        
+
+        return check;
     }
 
     /** Same as indexOf(char[], char), but starts the search in the given index.
      */
     public static int indexOf(char[] arr, char ch, int fromIndex) {
-        // Replace the following statement with your code
-        return -1;
+          int check= -1;
+         int count =fromIndex;
+        while(check == -1 && count<arr.length){
+          if(arr[count] == ch)
+          check =count;
+         count++;
+        }
+        
+
+        return check;
     }
 
     /** Returns the index within the given arr of the last occurrence of the given character.
      *  If no such character is found, returns -1.
      */
     public static int lastIndexOf(char[] arr, char ch) {
-        // Replace the following statement with your code
-        return -1;
+        int i;
+        int num = -1;
+        for(i=0 ; i<arr.length ; i++){
+            if(arr[i]==ch) 
+                num=i;
+        }
+        return num;
     }
 
     /* Returns an array which is the concatanation of the two given arrays.
     */
     public static char[] concat(char[] arr1, char[] arr2) {
-        // Replace the following statement with your code
-        return null;
+        char[] newarr = new char [arr1.length+arr2.length]; 
+        int i;
+        int j;
+       int count =0;
+        for( i=0 ;i<arr1.length; i++ ){
+            newarr[i] = arr1[i];
+           count++;
+        }
+         for( j=count ;j<+count+arr2.length; j++ ){
+            newarr[j-count] = arr2[j];
+            
+        }
+        return newarr;
     }
 
     /** Returns a new array that can be described as a sub-array of this array.
@@ -84,8 +126,14 @@ public class ArrCharOps {
      *  characters containing the characters "urge".
      */     
     public static char[] subArray(char[] arr, int beginIndex, int endIndex) {
-        // Replace the following statement with your code
-        return null;
+       char[] arri = new char[endIndex-beginIndex];
+       int count =0;
+          for(int i=beginIndex+1 ; i<=endIndex ; i++){
+             arri[count] = arr[i];
+             count++;
+          }
+
+        return arri;
     }
 
      /** Returns a single integer that represents the given array. This integer is sometimes 
@@ -96,8 +144,13 @@ public class ArrCharOps {
      *  The hash value of an empty array is zero.
      */
     public static long hashCode(char[] arr) {
-        // Replace the following statement with your code
-        return 0;
+        long num =0;
+        int count =-1;
+        for(int i = 0 ; i<arr.length ; i++){
+            num = num + arr[i] * (long)Math.pow(7,arr.length+count);
+      count--;
+        }
+        return num;
     }
 
     /**

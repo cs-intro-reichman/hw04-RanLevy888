@@ -21,9 +21,9 @@ public class MyString {
         String newww = "";
        for(int i=0;i<str.length();i++){
         if(str.charAt(i)>='A' && str.charAt(i)<='Z')
-     newww= newww + (char)(str.charAt(i)+32);
-    else
-    newww= newww + str.charAt(i);
+            newww= newww + (char)(str.charAt(i)+32);
+        else
+            newww= newww + str.charAt(i);
        }
         return newww;
     }

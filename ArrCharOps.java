@@ -124,15 +124,16 @@ public class ArrCharOps {
      *  characters containing the characters "urge".
      */     
     public static char[] subArray(char[] arr, int beginIndex, int endIndex) {
-       char[] arri = new char[endIndex-beginIndex];
-       int count =0;
-          for(int i=beginIndex+1 ; i<=endIndex ; i++){
-             arri[count] = arr[i];
-             count++;
+       char[] out = new char[endIndex - beginIndex];
+    int j = 0;
+    for (int i = beginIndex; i < endIndex; i++) {
+        out[j] = arr[i];
+        j++;
+    }
+    return out;
           }
 
-        return arri;
-    }
+        
 
      /** Returns a single integer that represents the given array. This integer is sometimes 
      *  referred to as the array's "hash code". Later in the course we'll explain what these 

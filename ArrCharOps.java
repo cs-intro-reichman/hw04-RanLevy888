@@ -105,19 +105,17 @@ public class ArrCharOps {
     /* Returns an array which is the concatanation of the two given arrays.
     */
     public static char[] concat(char[] arr1, char[] arr2) {
-        char[] newarr = new char [arr1.length+arr2.length]; 
-        int i;
-        int j;
-       int count =0;
-        for( i=0 ;i<arr1.length; i++ ){
-            newarr[i] = arr1[i];
-           count++;
-        }
-         for( j=count ;j<+count+arr2.length; j++ ){
-            newarr[j-count] = arr2[j];
-            
-        }
-        return newarr;
+    char[] result = new char[arr1.length + arr2.length];
+    int i = 0;
+    for (int j = 0; j < arr1.length; j++) {
+        result[i] = arr1[j];
+        i++;
+    }
+    for (int j = 0; j < arr2.length; j++) {
+        result[i] = arr2[j];
+        i++;
+    }
+    return result;
     }
 
     /** Returns a new array that can be described as a sub-array of this array.
@@ -147,8 +145,8 @@ public class ArrCharOps {
         long num =0;
         int count =-1;
         for(int i = 0 ; i<arr.length ; i++){
-            num = num + arr[i] * (long)Math.pow(7,arr.length+count);
-      count--;
+            num += + arr[i] * (long)Math.pow(7,arr.length+count);
+            count--;
         }
         return num;
     }
@@ -157,7 +155,7 @@ public class ArrCharOps {
      * Compares the two strings lexicographically.
      * Assume that both strings are not empty.
      * 
-     * Characters are compared one by one from left to right, using their numeric Unicode values,
+     * Characters arecompared one by one from left to right, using their numeric Unicode values,
         as follows:
      * 1. If two characters at the same position in both strings are different,
      *    the string with the smaller character is considered lexicographically smaller.
@@ -179,7 +177,31 @@ public class ArrCharOps {
      *         return -2 if there is an error with the input.
      */
     public static int compareTo(String str1, String str2) {
-        // Replace the following statement with your code
-        return 0;
+    if (str1 == null || str2 == null || str1.length() == 0 || str2.length() == 0)
+        return -2;
+
+    int len1 = str1.length();
+    int len2 = str2.length();
+    int minLen = Math.min(len1, len2);
+
+    for (int i = 0; i < minLen; i++) {
+        char c1 = str1.charAt(i);
+        char c2 = str2.charAt(i);
+
+        if (c1 < c2)
+            return -1;
+        else if (c1 > c2)
+            return 1;
     }
+
+    if (len1 < len2)
+        return -1;
+    else if (len1 > len2)
+        return 1;
+    else
+        return 0;
 }
+}
+
+    
+       

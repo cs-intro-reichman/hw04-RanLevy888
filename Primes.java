@@ -1,23 +1,42 @@
 public class Primes {
     public static void main(String[] args) {
-       boolean check = false;
-       int count = 0;
-int n = Integer.parseInt(args[0]);
-System.err.println("Prime numbers up to " + n +":");
-for(int i=2 ; i<=n ; i++){
-    
-    for(int j=2 ; j<=n/2+1 ; j++){
-        if(i%j==0){
-            System.out.println(i);
-            count++;
-            break;
+      int n = Integer.parseInt(args[0]);
+        boolean[] prime = new boolean[n + 1];
+
+        int i = 2;
+        while (i <= n) {
+            prime[i] = true;
+            i++;
         }
 
-    }
-}
-double precemt = n/count;
-System.out.println("There are " + count + " primes between 2 and " + n +
-            " (" + precemt + "% are primes)");
+        i = 2;
+        while (i * i <= n) {
+            if (prime[i]) {
+                int k = i * i;
+                while (k <= n) {
+                    prime[k] = false;
+                    k += i;
+                }
+            }
+            i++;
+        }
 
+        System.out.println("Prime numbers up to " + n + ":");
+
+        int count = 0;
+        i = 2;
+
+        while (i <= n) {
+            if (prime[i]) {
+                System.out.println(i);
+                count++;
+            }
+            i++;
+        }
+
+        double percent = (100.0 * count) / (n - 1);
+
+        System.out.println("There are " + count + " primes between 2 and " + n +
+                           " (" + percent + "% are primes)");
     }
 }
